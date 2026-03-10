@@ -81,19 +81,60 @@
                 </a>
             </div>
 
-            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
                 @foreach($speakers as $speaker)
-                <article data-speaker-id="{{ $speaker->id }}" role="button" tabindex="0" class="speaker-card group rounded-3xl bg-bg border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent">
-                    <div class="h-56 overflow-hidden">
-                        <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ $speaker->image_url }}" alt="{{ $speaker->name }}" />
-                    </div>
-                    <div class="p-6 md:p-8">
-                        <p class="text-xs font-bold uppercase tracking-wider text-accent">{{ $speaker->role }}</p>
-                        <h3 class="mt-3 text-lg font-bold text-charcoal">{{ $speaker->name }}</h3>
-                        <p class="mt-2 text-sm text-gray-600 font-medium leading-relaxed">{{ $speaker->organization }}</p>
-                    </div>
-                </article>
+                <div class="snap-start shrink-0 w-[280px] sm:w-[320px]">
+                    <article data-speaker-id="{{ $speaker->id }}" role="button" tabindex="0" class="speaker-card h-full group rounded-3xl bg-bg border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent">
+                        <div class="h-56 overflow-hidden">
+                            <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ $speaker->image_url }}" alt="{{ $speaker->name }}" />
+                        </div>
+                        <div class="p-6 md:p-8">
+                            <p class="text-xs font-bold uppercase tracking-wider text-accent">{{ $speaker->role }}</p>
+                            <h3 class="mt-3 text-lg font-bold text-charcoal">{{ $speaker->name }}</h3>
+                            <p class="mt-2 text-sm text-gray-600 font-medium leading-relaxed">{{ $speaker->organization }}</p>
+                        </div>
+                    </article>
+                </div>
                 @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section id="sponsors" class="bg-white py-12 md:py-20">
+        <div class="mx-auto max-w-7xl px-4">
+            <div class="text-center md:text-left mb-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal relative inline-block">
+                    Sponsors & Partners
+                    <div class="absolute -bottom-2 left-0 h-1 w-1/3 bg-accent rounded-full"></div>
+                </h2>
+                <p class="mt-6 max-w-2xl text-lg text-gray-700 leading-relaxed mx-auto md:mx-0">We are grateful to the organisations supporting the mission of CESIF and this conference.</p>
+            </div>
+
+            <div class="relative mt-10 overflow-hidden rounded-3xl bg-bg py-10 shadow-inner">
+                @if($sponsors->count() > 0)
+                <div class="flex animate-marquee gap-10 px-6 items-center">
+                    @foreach($sponsors as $sponsor)
+                    <img class="h-14 w-auto object-contain opacity-90 shrink-0 mix-blend-multiply" src="{{ $sponsor->logo_url }}" alt="{{ $sponsor->name }}" />
+                    @endforeach
+                    <!-- Duplicate for infinite marquee effect -->
+                    @foreach($sponsors as $sponsor)
+                    <img class="h-14 w-auto object-contain opacity-90 shrink-0 mix-blend-multiply" src="{{ $sponsor->logo_url }}" alt="{{ $sponsor->name }}" />
+                    @endforeach
+                </div>
+                @else
+                <div class="flex animate-marquee gap-10 px-6 items-center">
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+1" alt="Sponsor 1" />
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+2" alt="Sponsor 2" />
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+3" alt="Sponsor 3" />
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+4" alt="Sponsor 4" />
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+5" alt="Sponsor 5" />
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+6" alt="Sponsor 6" />
+                    <!-- duplicate for seamless looping -->
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+1" alt="Sponsor 1" />
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+2" alt="Sponsor 2" />
+                    <img class="h-14 w-auto object-contain opacity-60 mix-blend-multiply" src="https://via.placeholder.com/180x60?text=Sponsor+3" alt="Sponsor 3" />
+                </div>
+                @endif
             </div>
         </div>
     </section>

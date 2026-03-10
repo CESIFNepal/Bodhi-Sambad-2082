@@ -8,9 +8,9 @@ class PageController extends Controller
 {
     public function home()
     {
-        // Keep the home page lightweight with only a few featured speakers.
+        // Keep the home page lightweight but with enough featured speakers for the carousel.
         // The "Complete Directory" link leads to the full speaker list.
-        $speakers = \App\Models\Speaker::take(4)->get();
+        $speakers = \App\Models\Speaker::take(12)->get();
         $schedules = \App\Models\Schedule::take(3)->get();
         $sponsors = \App\Models\Sponsor::all();
         return view('home', compact('speakers', 'schedules', 'sponsors'));
