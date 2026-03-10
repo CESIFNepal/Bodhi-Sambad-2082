@@ -68,9 +68,15 @@ function setupMobileMenu() {
             menu.style.maxHeight = '0';
             menu.style.opacity = '0';
             menu.style.pointerEvents = 'none';
-            setTimeout(() => menu.classList.add('hidden'), 300);
+            setTimeout(() => {
+                menu.classList.add('hidden');
+                menu.classList.add('opacity-0');
+                menu.classList.add('pointer-events-none');
+            }, 300);
         } else {
             menu.classList.remove('hidden');
+            menu.classList.remove('opacity-0');
+            menu.classList.remove('pointer-events-none');
             menu.style.pointerEvents = 'auto';
             requestAnimationFrame(() => {
                 menu.style.opacity = '1';
