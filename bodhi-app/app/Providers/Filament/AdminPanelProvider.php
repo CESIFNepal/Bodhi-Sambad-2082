@@ -28,10 +28,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            // --- ADD THESE LINES FOR VERCEL STABILITY ---
-            ->sidebarCollapsible()
-            ->spa() // Improves speed on Vercel
-            // --------------------------------------------
+            ->sidebarFullyCollapsibleOnDesktop()
+            ->spa()
             ->colors([
                 'primary' => Color::Amber,
             ])
