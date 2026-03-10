@@ -84,14 +84,29 @@
 @include('components.speaker-modal')
 
 <script>
-    window.SPEAKERS = @json($speakers->map(function($s) {
+    /* Using standard PHP echo to bypass the Laravel 12 Blade compiler bug.
+       This is the most stable way to pass data to JS on Vercel.
+    */
+    window.SPEAKERS = <?php echo json_encode($speakers->map(function($s) {
         return [
             'id' => $s->id,
             'name' => $s->name,
             'role' => $s->role,
             'organization' => $s->organization,
-            'bio' => property_exists($s, 'bio') ? $s->bio : null,
+            'bio' => $s->bio ?? null,
             'image_url' => $s->image_url,
         ];
-    }));
+    })->toArray()); ?>;
+
+    // Listener to open the modal when a speaker card is clicked
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.speaker-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.getAttribute('data-speaker-id');
+                window.dispatchEvent(new CustomEvent('open-speaker-modal', { 
+                    detail: { id: id } 
+                }));
+            });
+        });
+    });
 </script>
