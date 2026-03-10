@@ -229,40 +229,16 @@
 
     @include('components.speaker-modal')
 
-    @php
-        // Prepare the speaker data for JavaScript in a safe PHP block
-        $speakerData = $speakers->map(fn($s) => [
-            'id' => $s->id,
-            'name' => $s->name,
-            'role' => $s->role,
-            'organization' => $s->organization,
-            'bio' => $s->bio,
-            'image_url' => $s->image_url,
-        ]);
-    @endphp
-
-   @include('components.speaker-modal')
-
     <script>
-        {{-- Standard PHP json_encode is the safest way to avoid Blade compiler TypeErrors --}}
-        window.SPEAKERS = {!! json_encode($speakers->map(fn($s) => [
-            'id' => $s->id,
-            'name' => $s->name,
-            'role' => $s->role,
-            'organization' => $s->organization,
-            'bio' => $s->bio,
-            'image_url' => $s->image_url,
-        ])) !!};
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.speaker-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const id = card.getAttribute('data-speaker-id');
-                    window.dispatchEvent(new CustomEvent('open-speaker-modal', { 
-                        detail: { id: id } 
-                    }));
-                });
-            });
-        });
+        window.SPEAKERS = @json($speakers->map(function($s) {
+            return [
+                'id' => $s->id,
+                'name' => $s->name,
+                'role' => $s->role,
+                'organization' => $s->organization,
+                'bio' => $s->bio,
+                'image_url' => $s->image_url,
+            ];
+        }));
     </script>
 @endsection
