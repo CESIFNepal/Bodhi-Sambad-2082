@@ -3,7 +3,8 @@
 @section('content')
     <section class="relative overflow-hidden bg-gradient-to-br from-white via-bg to-white shadow-md md:pt-14 mx-4 md:mx-auto max-w-7xl rounded-3xl mt-6">
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=80" alt="Kathmandu skyline" class="h-full w-full object-cover opacity-20" />
+            <img src="https://orlandosydney.com/what-is-a-business-conference/auto=format&fit=crop&w=1600&q=80" alt="Kathmandu skyline" class="h-full w-full object-cover opacity-20" />
+            
         </div>
         <div class="relative mx-auto max-w-6xl px-6 py-16 md:py-24 text-center md:text-left">
             <div class="max-w-3xl">
@@ -77,7 +78,7 @@
                     <p class="mt-6 max-w-2xl text-lg text-gray-700 leading-relaxed">Meet the thought leaders who will be guiding the conversations on geopolitics and diplomacy.</p>
                 </div>
                 <a href="{{ route('speakers') }}" target="_blank" rel="noopener" class="w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-8 py-3 text-sm font-bold text-charcoal shadow-sm transition hover:border-accent hover:text-accent group">
-                    View All Speakers
+                    View All Speakers >
                 </a>
             </div>
 
