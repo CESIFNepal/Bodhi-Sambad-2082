@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-br from-white via-bg to-white shadow-md md:pt-14 mx-4 md:mx-auto max-w-7xl rounded-3xl mt-6">
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=80" alt="Kathmandu skyline" class="h-full w-full object-cover opacity-20" />
@@ -38,7 +37,6 @@
         </div>
     </section>
 
-    <!-- About Snippet -->
     <section id="about" class="mx-auto max-w-6xl px-4 mt-24 scroll-mt-24">
         <div class="grid gap-12 md:grid-cols-2 md:items-center">
             <div>
@@ -67,7 +65,6 @@
         </div>
     </section>
 
-    <!-- Speakers Snippet -->
     <section id="speakers" class="bg-white py-24 mt-24">
         <div class="mx-auto max-w-7xl px-4">
             <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12">
@@ -103,7 +100,6 @@
         </div>
     </section>
 
-    <!-- Schedule Snippet -->
     <section id="schedule" class="mx-auto max-w-7xl px-4 py-24 scroll-mt-24">
         <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12">
             <div>
@@ -150,32 +146,27 @@
         </div>
     </section>
 
-    <!-- Sponsors Carousel -->
     <section id="sponsors" class="bg-white py-16 scroll-mt-24 overflow-hidden border-y border-gray-100">
         <div class="mx-auto max-w-7xl px-4 mb-10 text-center">
             <h2 class="text-sm uppercase tracking-widest font-bold text-gray-500 mb-2">Supported By</h2>
             <div class="h-1 w-16 bg-accent mx-auto rounded-full"></div>
         </div>
 
-        <!-- Borderless Carousel Container -->
         <div class="relative flex overflow-x-hidden group">
             <div class="py-4 animate-marquee whitespace-nowrap flex items-center">
                 @foreach($sponsors as $sponsor)
                 <img class="mx-12 h-16 w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300 pointer-events-none" src="{{ $sponsor->logo_url }}" alt="{{ $sponsor->name }}" />
                 @endforeach
-                <!-- Duplicate for seamless looping -->
                 @foreach($sponsors as $sponsor)
                 <img class="mx-12 h-16 w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300 pointer-events-none" src="{{ $sponsor->logo_url }}" alt="{{ $sponsor->name }}" />
                 @endforeach
             </div>
             
-            <!-- Optional fade edges -->
             <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent"></div>
             <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent"></div>
         </div>
     </section>
 
-    <!-- Registration -->
     <section id="registration" class="bg-charcoal text-white py-24 scroll-mt-24">
         <div class="mx-auto max-w-5xl px-4">
             <div class="bg-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm border border-white/10 shadow-2xl">
@@ -238,16 +229,32 @@
 
     @include('components.speaker-modal')
 
+    @php
+        // Prepare the speaker data for JavaScript in a safe PHP block
+        $speakerData = $speakers->map(fn($s) => [
+            'id' => $s->id,
+            'name' => $s->name,
+            'role' => $s->role,
+            'organization' => $s->organization,
+            'bio' => $s->bio,
+            'image_url' => $s->image_url,
+        ]);
+    @endphp
+
     <script>
-        window.SPEAKERS = @json($speakers->map(function($s) {
-            return [
-                'id' => $s->id,
-                'name' => $s->name,
-                'role' => $s->role,
-                'organization' => $s->organization,
-                'bio' => $s->bio,
-                'image_url' => $s->image_url,
-            ];
-        }));
+        // Pass data safely to JS using the @js directive
+        window.SPEAKERS = @js($speakerData);
+
+        // Add event listeners to speaker cards to trigger the Alpine.js modal
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.speaker-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-speaker-id');
+                    window.dispatchEvent(new CustomEvent('open-speaker-modal', { 
+                        detail: { id: id } 
+                    }));
+                });
+            });
+        });
     </script>
 @endsection
