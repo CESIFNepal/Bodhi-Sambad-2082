@@ -66,10 +66,16 @@ function setupMobileMenu() {
         const isOpen = !menu.classList.contains('hidden');
         if (isOpen) {
             menu.style.maxHeight = '0';
+            menu.style.opacity = '0';
+            menu.style.pointerEvents = 'none';
             setTimeout(() => menu.classList.add('hidden'), 300);
         } else {
             menu.classList.remove('hidden');
-            menu.style.maxHeight = `${menu.scrollHeight}px`;
+            menu.style.pointerEvents = 'auto';
+            requestAnimationFrame(() => {
+                menu.style.opacity = '1';
+                menu.style.maxHeight = `${menu.scrollHeight}px`;
+            });
         }
         setExpanded(!isOpen);
     });
