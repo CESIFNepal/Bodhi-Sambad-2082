@@ -189,8 +189,8 @@
         </ul>
     </nav>
     
-    <!-- Go To Top Button -->
-    <button id="go-to-top" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-accent text-white shadow-xl shadow-accent/40 opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-accent" aria-label="Go to top">
+    <!-- Go To Top Button (Hidden on Mobile) -->
+    <button id="go-to-top" class="hidden md:block fixed bottom-6 right-6 z-40 p-3 rounded-full bg-accent text-white shadow-xl shadow-accent/40 opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-accent" aria-label="Go to top">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
         </svg>

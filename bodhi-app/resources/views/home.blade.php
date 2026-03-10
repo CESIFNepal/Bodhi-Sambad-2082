@@ -114,6 +114,61 @@
         </div>
     </section>
 
+    <section id="schedule" class="bg-gray-50 py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal relative inline-block">
+                Conference Schedule
+                <div class="absolute -bottom-2 left-0 h-1 w-1/3 bg-accent rounded-full"></div>
+            </h2>
+            <p class="mt-6 max-w-2xl text-lg text-gray-700 leading-relaxed">A snapshot of the three-day programme. Full agenda is online.</p>
+          </div>
+          <a href="{{ route('schedule') }}" target="_blank" rel="noopener" class="w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-8 py-3 text-sm font-bold text-charcoal shadow-sm transition hover:border-accent hover:text-accent group">
+            View Full Schedule
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-12 grid gap-8 md:grid-cols-3">
+          <article class="rounded-3xl bg-white p-8 shadow-sm border border-gray-100 transition-all hover:-translate-y-1 hover:shadow-lg relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full -z-10"></div>
+            <h3 class="text-2xl font-bold text-charcoal">Day 1</h3>
+            <p class="mt-3 text-sm text-gray-700 leading-relaxed font-medium">Opening ceremony, keynote remarks, and the first panel discussion on connectivity and infrastructure.</p>
+            <ul class="mt-6 space-y-3 text-sm text-gray-700">
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">09:00</span> <span class="font-medium">Opening & welcome</span></li>
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">10:15</span> <span class="font-medium">Keynote: China’s vision in South Asia</span></li>
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">12:30</span> <span class="font-medium">Panel: Belt and Road implications</span></li>
+            </ul>
+          </article>
+
+          <article class="rounded-3xl bg-white p-8 shadow-sm border border-gray-100 transition-all hover:-translate-y-1 hover:shadow-lg relative overflow-hidden">
+             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full -z-10"></div>
+            <h3 class="text-2xl font-bold text-charcoal">Day 2</h3>
+            <p class="mt-3 text-sm text-gray-700 leading-relaxed font-medium">Discussion tracks on economic partnerships, trade policy, and regional cooperation.</p>
+             <ul class="mt-6 space-y-3 text-sm text-gray-700">
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">09:00</span> <span class="font-medium">Track A: Trade & investment</span></li>
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">11:00</span> <span class="font-medium">Track B: Security & diplomacy</span></li>
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">14:00</span> <span class="font-medium">Roundtables & breakout sessions</span></li>
+            </ul>
+          </article>
+
+           <article class="rounded-3xl bg-white p-8 shadow-sm border border-gray-100 transition-all hover:-translate-y-1 hover:shadow-lg relative overflow-hidden">
+             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full -z-10"></div>
+            <h3 class="text-2xl font-bold text-charcoal">Day 3</h3>
+            <p class="mt-3 text-sm text-gray-700 leading-relaxed font-medium">Closing sessions, executive summary, and next steps for collective action.</p>
+            <ul class="mt-6 space-y-3 text-sm text-gray-700">
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">09:30</span> <span class="font-medium">Plenary: Regional frameworks</span></li>
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">11:30</span> <span class="font-medium">Policy recommendations workshop</span></li>
+              <li class="flex items-start gap-4"><span class="font-bold text-accent whitespace-nowrap">14:00</span> <span class="font-medium">Closing remarks & networking</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="sponsors" class="bg-white py-12 md:py-20">
         <div class="mx-auto max-w-7xl px-4">
             <div class="text-center md:text-left mb-10">
