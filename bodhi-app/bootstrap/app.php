@@ -11,7 +11,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // 1. Tell Laravel to trust Vercel's proxy for HTTPS
+        $middleware->trustProxies(at: '*');
+
+        // 2. Prevent CSRF from blocking Filament/Livewire requests
+        $middleware->validateCsrfTokens(except: [
+            'livewire/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
