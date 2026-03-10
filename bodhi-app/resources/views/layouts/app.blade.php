@@ -61,6 +61,21 @@
                 <a href="{{ route('home') }}#schedule" class="text-charcoal hover:text-accent transition">Schedule</a>
                 <a href="{{ route('home') }}#registration" class="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-accent/30 transition hover:bg-accent/90">Register</a>
             </nav>
+
+            <button id="mobile-menu-toggle" class="md:hidden rounded-lg border border-gray-200 p-2 text-charcoal focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Toggle navigation" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden border-t border-gray-200 bg-white/95 px-4 pb-4">
+            <nav class="flex flex-col gap-3 pt-4">
+                <a href="{{ route('home') }}#about" class="text-base font-medium text-charcoal hover:text-accent">About</a>
+                <a href="{{ route('home') }}#speakers" class="text-base font-medium text-charcoal hover:text-accent">Speakers</a>
+                <a href="{{ route('home') }}#schedule" class="text-base font-medium text-charcoal hover:text-accent">Schedule</a>
+                <a href="{{ route('home') }}#registration" class="inline-flex w-full items-center justify-center rounded-full bg-accent px-4 py-2 text-base font-semibold text-white shadow-sm shadow-accent/30">Register</a>
+            </nav>
         </div>
     </header>
 

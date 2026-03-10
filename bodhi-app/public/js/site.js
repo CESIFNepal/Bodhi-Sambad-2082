@@ -53,6 +53,39 @@ function setupSmoothScroll() {
     });
 }
 
+function setupMobileMenu() {
+    const toggle = safeQuerySelector('#mobile-menu-toggle');
+    const menu = safeQuerySelector('#mobile-menu');
+    if (!toggle || !menu) return;
+
+    const setExpanded = (open) => {
+        toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        setExpanded(!isOpen);
+    });
+
+    // Close menu on navigation link click
+    const links = safeQuerySelectorAll('#mobile-menu a');
+    links.forEach((link) => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            setExpanded(false);
+        });
+    });
+
+    // Close menu on Escape key
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+            setExpanded(false);
+        }
+    });
+}
+
 function getSpeakerMap() {
     const list = window.SPEAKERS || [];
     return Array.isArray(list) ? list.reduce((acc, speaker) => {
@@ -134,6 +167,7 @@ function init() {
     setupSmoothScroll();
     scrollToHashOnLoad();
     setupSpeakerModalInteractions();
+    setupMobileMenu();
 }
 
 if (document.readyState === 'loading') {
