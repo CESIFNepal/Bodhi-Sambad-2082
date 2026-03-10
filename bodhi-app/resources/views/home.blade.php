@@ -241,11 +241,19 @@
         ]);
     @endphp
 
-    <script>
-        // Pass data safely to JS using the @js directive
-        window.SPEAKERS = @js($speakerData);
+   @include('components.speaker-modal')
 
-        // Add event listeners to speaker cards to trigger the Alpine.js modal
+    <script>
+        {{-- Standard PHP json_encode is the safest way to avoid Blade compiler TypeErrors --}}
+        window.SPEAKERS = {!! json_encode($speakers->map(fn($s) => [
+            'id' => $s->id,
+            'name' => $s->name,
+            'role' => $s->role,
+            'organization' => $s->organization,
+            'bio' => $s->bio,
+            'image_url' => $s->image_url,
+        ])) !!};
+
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.speaker-card').forEach(card => {
                 card.addEventListener('click', () => {
