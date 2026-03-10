@@ -1,0 +1,87 @@
+/* Global base styles */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Carousel animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Accessibility focus outline */
+:focus-visible {
+  outline: 3px solid rgba(217, 164, 65, 0.7);
+  outline-offset: 3px;
+}
+
+/* Utility class for a subtle divider line */
+.divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Placeholder for user to customize further */
+/* ------------------------------------------------------------------ */
+/* Replace the colors below to match your brand palette. */
+/* :root {
+  --primary-bg: #F7F4EF;
+  --accent: #D9A441;
+  --text: #1D1D1B;
+} */
+
+/* Print-friendly adjustments */
+@media print {
+  /* Simplify layout for printing */
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  header, footer, nav, button {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  section, article {
+    box-shadow: none !important;
+    border: none !important;
+    page-break-inside: avoid;
+  }
+
+  .rounded-3xl,
+  .rounded-2xl {
+    border-radius: 0 !important;
+  }
+
+  /* Ensure tables or complex layouts print cleanly */
+  .grid {
+    display: block !important;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+/* Add any additional custom styles below */

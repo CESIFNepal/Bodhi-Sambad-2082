@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BODHI SAMBAD 2026 — China in South Asia</title>
+  <meta name="description" content="BODHI SAMBAD 2026 International Conference on China in South Asia | CESIF" />
+
+  <!-- Tailwind via CDN (Easy to edit later) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F7F4EF',
+            accent: '#D9A441',
+            charcoal: '#1D1D1B'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="min-h-screen bg-bg text-charcoal font-sans leading-relaxed">
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+      <a href="#" class="flex items-center gap-3 text-lg font-semibold tracking-wide">
+        <span class="inline-block h-10 w-10 rounded-full bg-accent/90"></span>
+        <span>BODHI SAMBAD 2026</span>
+      </a>
+
+      <nav class="hidden gap-6 text-sm font-medium md:flex">
+        <a href="#about" class="text-charcoal hover:text-accent">About</a>
+        <a href="#speakers" class="text-charcoal hover:text-accent">Speakers</a>
+        <a href="#schedule" class="text-charcoal hover:text-accent">Schedule</a>
+        <a href="#sponsors" class="text-charcoal hover:text-accent">Sponsors</a>
+        <a href="#registration" class="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-accent/30 transition hover:bg-accent/90">Register</a>
+      </nav>
+
+      <button id="mobile-menu-toggle" class="md:hidden rounded-lg border border-gray-200 p-2 text-charcoal focus:outline-none focus:ring-2 focus:ring-accent">
+        <span class="sr-only">Open menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-gray-200 bg-white/90 px-4 pb-4">
+      <nav class="flex flex-col gap-3 pt-4">
+        <a href="#about" class="text-base font-medium text-charcoal hover:text-accent">About</a>
+        <a href="#speakers" class="text-base font-medium text-charcoal hover:text-accent">Speakers</a>
+        <a href="#schedule" class="text-base font-medium text-charcoal hover:text-accent">Schedule</a>
+        <a href="#sponsors" class="text-base font-medium text-charcoal hover:text-accent">Sponsors</a>
+        <a href="#registration" class="inline-flex w-full items-center justify-center rounded-full bg-accent px-4 py-2 text-base font-semibold text-white shadow-sm shadow-accent/30">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 pb-12 pt-10">
+    <!-- Hero -->
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-bg to-white shadow-xl md:pt-14">
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=80" alt="Kathmandu skyline" class="h-full w-full object-cover opacity-30" />
+      </div>
+      <div class="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div class="max-w-3xl">
+          <p class="inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1 text-sm font-semibold text-accent">
+            <span class="h-2 w-2 rounded-full bg-accent"></span>
+            International Conference
+          </p>
+          <h1 class="mt-6 text-4xl font-semibold tracking-tight text-charcoal sm:text-5xl">
+            BODHI SAMBAD 2026
+          </h1>
+          <p class="mt-4 text-lg text-gray-700 sm:text-xl">
+            China in South Asia: Navigating geopolitics, economics, and regional cooperation.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#registration" class="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:bg-accent/90">
+              Register Now
+            </a>
+            <div class="inline-flex items-center gap-4 text-sm text-gray-700">
+              <span class="flex items-center gap-2">
+                <span class="inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
+                May 21–23, 2026
+              </span>
+              <span class="flex items-center gap-2">
+                <span class="inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
+                Kathmandu, Nepal
+              </span>
+            </div>
+          </div>
+
+          <div class="mt-10 grid gap-6 rounded-2xl bg-white/70 p-6 shadow-sm shadow-gray-200 sm:grid-cols-2">
+            <div>
+              <h2 class="text-sm font-semibold tracking-wide text-gray-800">Key Themes</h2>
+              <ul class="mt-3 space-y-2 text-sm text-gray-700">
+                <li>China's strategic footprint in South Asia</li>
+                <li>Economic corridors & infrastructure diplomacy</li>
+                <li>Regional security & collective bargaining</li>
+                <li>Policy pathways for sustainable partnership</li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold tracking-wide text-gray-800">Who Should Attend</h2>
+              <ul class="mt-3 space-y-2 text-sm text-gray-700">
+                <li>Policy makers, researchers & academics</li>
+                <li>Diplomats and civil society leaders</li>
+                <li>Business strategists and analysts</li>
+                <li>Students of international relations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mt-16 scroll-mt-24">
+      <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <h2 class="text-3xl font-semibold tracking-tight text-charcoal">Why BODHI SAMBAD?</h2>
+          <p class="mt-4 text-base text-gray-700">
+            The growing presence of China in South Asia is reshaping geopolitics, economics, and regional connectivity. BODHI SAMBAD 2026 brings together thought leaders, policy makers, and academics to analyse emerging trends and craft actionable insights for the region.
+          </p>
+          <p class="mt-4 text-base text-gray-700">
+            The conference focuses on the complexity of regional alliances, the implications of major infrastructure projects, and the necessity of shared frameworks for dialogue and cooperation.
+          </p>
+          <a href="about.html" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-charcoal shadow-sm transition hover:bg-gray-50">
+            Read More
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="relative overflow-hidden rounded-3xl bg-white shadow-lg">
+          <img src="https://images.unsplash.com/photo-1518676679158-6c2115d5c4c7?auto=format&fit=crop&w=1200&q=80" alt="Conference" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <p class="text-sm uppercase tracking-widest">Conference highlight</p>
+            <h3 class="mt-2 text-2xl font-semibold">Engage with international experts</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speakers -->
+    <section id="speakers" class="mt-20 scroll-mt-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl font-semibold tracking-tight text-charcoal">Featured Speakers</h2>
+            <p class="mt-3 max-w-2xl text-base text-gray-700">Meet the thought leaders who will be guiding the conversations on geopolitics, diplomacy, and regional cooperation.</p>
+          </div>
+          <a href="speakers.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-charcoal shadow-sm transition hover:bg-gray-50">
+            View More
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Speaker Card 1 -->
+          <article class="rounded-3xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <img class="h-56 w-full rounded-t-3xl object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80" alt="Speaker 1" />
+            <div class="p-6">
+              <p class="text-sm font-semibold text-accent">Panel Chair</p>
+              <h3 class="mt-3 text-xl font-semibold text-charcoal">Dr. Maya Shrestha</h3>
+              <p class="mt-2 text-sm text-gray-700">Professor of International Relations, Tribhuvan University</p>
+            </div>
+          </article>
+
+          <!-- Speaker Card 2 -->
+          <article class="rounded-3xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <img class="h-56 w-full rounded-t-3xl object-cover" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Speaker 2" />
+            <div class="p-6">
+              <p class="text-sm font-semibold text-accent">Keynote Speaker</p>
+              <h3 class="mt-3 text-xl font-semibold text-charcoal">Mr. Li Wei</h3>
+              <p class="mt-2 text-sm text-gray-700">Senior Research Fellow, Asia Policy Institute</p>
+            </div>
+          </article>
+
+          <!-- Speaker Card 3 -->
+          <article class="rounded-3xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <img class="h-56 w-full rounded-t-3xl object-cover" src="https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=900&q=80" alt="Speaker 3" />
+            <div class="p-6">
+              <p class="text-sm font-semibold text-accent">Panelist</p>
+              <h3 class="mt-3 text-xl font-semibold text-charcoal">Dr. Ayesha Patel</h3>
+              <p class="mt-2 text-sm text-gray-700">Economist, Regional Development Council</p>
+            </div>
+          </article>
+
+          <!-- Speaker Card 4 -->
+          <article class="rounded-3xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <img class="h-56 w-full rounded-t-3xl object-cover" src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=900&q=80" alt="Speaker 4" />
+            <div class="p-6">
+              <p class="text-sm font-semibold text-accent">Panelist</p>
+              <h3 class="mt-3 text-xl font-semibold text-charcoal">Mr. Rajiv Thapa</h3>
+              <p class="mt-2 text-sm text-gray-700">Senior Analyst, Global Affairs Forum</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="mt-20 scroll-mt-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl font-semibold tracking-tight text-charcoal">Conference Schedule</h2>
+            <p class="mt-3 max-w-2xl text-base text-gray-700">A snapshot of the three-day programme. Full agenda is online.</p>
+          </div>
+          <a href="schedule.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-charcoal shadow-sm transition hover:bg-gray-50">
+            View Full Schedule
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <article class="rounded-3xl bg-white p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-charcoal">Day 1</h3>
+            <p class="mt-2 text-sm text-gray-700">Opening ceremony, keynote remarks, and the first panel discussion on connectivity and infrastructure.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li>09:00 – 10:00: Opening & welcome</li>
+              <li>10:15 – 11:30: Keynote: China’s vision in South Asia</li>
+              <li>12:30 – 14:00: Panel: Belt and Road implications</li>
+            </ul>
+          </article>
+
+          <article class="rounded-3xl bg-white p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-charcoal">Day 2</h3>
+            <p class="mt-2 text-sm text-gray-700">Discussion tracks on economic partnerships, trade policy, and regional cooperation.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li>09:00 – 10:30: Track A: Trade & investment</li>
+              <li>11:00 – 12:30: Track B: Security & diplomacy</li>
+              <li>14:00 – 15:30: Roundtables & breakout sessions</li>
+            </ul>
+          </article>
+
+          <article class="rounded-3xl bg-white p-6 shadow-sm">
+            <h3 class="text-xl font-semibold text-charcoal">Day 3</h3>
+            <p class="mt-2 text-sm text-gray-700">Closing sessions, executive summary, and next steps for collective action.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li>09:30 – 11:00: Plenary: Regional frameworks</li>
+              <li>11:30 – 13:00: Policy recommendations workshop</li>
+              <li>14:00 – 15:30: Closing remarks & networking</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors -->
+    <section id="sponsors" class="mt-20 scroll-mt-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 class="text-3xl font-semibold tracking-tight text-charcoal">Sponsors & Partners</h2>
+            <p class="mt-3 max-w-2xl text-base text-gray-700">We are grateful to the organisations supporting the mission of CESIF and this conference.</p>
+          </div>
+        </div>
+
+        <div class="relative mt-10 overflow-hidden rounded-3xl bg-white py-10 shadow-sm">
+          <div id="sponsor-carousel" class="flex animate-marquee gap-10 px-6">
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+1" alt="Sponsor 1" />
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+2" alt="Sponsor 2" />
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+3" alt="Sponsor 3" />
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+4" alt="Sponsor 4" />
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+5" alt="Sponsor 5" />
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+6" alt="Sponsor 6" />
+            <!-- duplicate for seamless looping -->
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+1" alt="Sponsor 1" />
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+2" alt="Sponsor 2" />
+            <img class="h-14 w-auto object-contain opacity-90" src="https://via.placeholder.com/180x60?text=Sponsor+3" alt="Sponsor 3" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration -->
+    <section id="registration" class="mt-20 scroll-mt-24">
+      <div class="mx-auto max-w-4xl rounded-3xl bg-white p-10 shadow-lg">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 class="text-3xl font-semibold tracking-tight text-charcoal">Register Your Participation</h2>
+            <p class="mt-3 max-w-md text-base text-gray-700">Reserve your seat for BODHI SAMBAD 2026. Fill out the form below and we’ll keep you updated with the latest conference information.</p>
+          </div>
+          <div class="rounded-2xl bg-accent/10 px-6 py-4 text-sm text-gray-700">
+            <p class="font-semibold text-accent">Conference dates</p>
+            <p>21–23 May 2026</p>
+            <p class="mt-1">Kathmandu, Nepal</p>
+          </div>
+        </div>
+
+        <form class="mt-10 grid gap-6 md:grid-cols-2" onsubmit="handleRegistration(event)">
+          <label class="grid gap-2">
+            <span class="text-sm font-semibold text-gray-700">First Name</span>
+            <input required type="text" name="firstName" placeholder="First name" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base shadow-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20" />
+          </label>
+
+          <label class="grid gap-2">
+            <span class="text-sm font-semibold text-gray-700">Last Name</span>
+            <input required type="text" name="lastName" placeholder="Last name" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base shadow-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20" />
+          </label>
+
+          <label class="md:col-span-2 grid gap-2">
+            <span class="text-sm font-semibold text-gray-700">Email</span>
+            <input required type="email" name="email" placeholder="you@example.com" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base shadow-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20" />
+          </label>
+
+          <label class="md:col-span-2 grid gap-2">
+            <span class="text-sm font-semibold text-gray-700">Organization</span>
+            <input type="text" name="organization" placeholder="Your organization" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base shadow-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20" />
+          </label>
+
+          <div class="md:col-span-2">
+            <button type="submit" class="w-full rounded-full bg-accent px-6 py-4 text-base font-semibold text-white shadow-lg shadow-accent/30 transition hover:bg-accent/90">
+              Submit Registration
+            </button>
+            <p class="mt-3 text-sm text-gray-500">*This is a demo form. Replace with real submission handling as needed.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-200 bg-white py-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 md:flex-row md:items-start md:justify-between">
+      <div>
+        <h3 class="text-lg font-semibold text-charcoal">Centre for Social Innovation and Foreign Policy (CESIF)</h3>
+        <p class="mt-3 text-sm text-gray-700">Kathmandu, Nepal</p>
+        <p class="mt-1 text-sm text-gray-700">Email: <a href="mailto:info@cesifnepal.org" class="text-accent hover:underline">info@cesifnepal.org</a></p>
+        <p class="mt-1 text-sm text-gray-700">Web: <a href="https://www.cesifnepal.org" class="text-accent hover:underline" target="_blank" rel="noopener">www.cesifnepal.org</a></p>
+      </div>
+      <div class="text-sm text-gray-500">
+        <p>© <span id="currentYear"></span> CESIF. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
