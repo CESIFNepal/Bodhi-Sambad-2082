@@ -44,7 +44,7 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="min-h-screen bg-bg text-charcoal font-sans leading-relaxed flex flex-col">
+<body class="min-h-screen bg-bg text-charcoal font-sans leading-relaxed flex flex-col pb-24 md:pb-0">
     
     <header class="sticky top-0 z-[100] bg-white border-b border-gray-100 shadow-sm">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
@@ -53,29 +53,11 @@
                 <span class="tracking-tight uppercase">BODHI SAMBAD 2026</span>
             </a>
 
-            <button id="nav-toggle-btn" class="md:hidden p-2 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none transition-colors active:bg-gray-200" aria-label="Toggle Menu">
-                <svg id="svg-open" class="h-6 w-6 text-charcoal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-                <svg id="svg-close" class="hidden h-6 w-6 text-charcoal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
             <nav class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest">
                 <a href="{{ route('home') }}#about" class="hover:text-accent transition">About</a>
                 <a href="{{ route('home') }}#speakers" class="hover:text-accent transition">Speakers</a>
                 <a href="{{ route('home') }}#schedule" class="hover:text-accent transition">Schedule</a>
                 <a href="{{ route('home') }}#registration" class="bg-accent px-6 py-2 rounded-full text-white shadow-lg shadow-accent/20 transition hover:bg-accent/90">Register</a>
-            </nav>
-        </div>
-
-        <div id="nav-menu-container" style="display: none;" class="md:hidden fixed inset-0 top-[70px] bg-white z-[110] overflow-y-auto">
-            <nav class="flex flex-col p-8 space-y-8">
-                <a href="{{ route('home') }}#about" class="mob-link text-2xl font-black text-charcoal border-b border-gray-100 pb-4">About</a>
-                <a href="{{ route('home') }}#speakers" class="mob-link text-2xl font-black text-charcoal border-b border-gray-100 pb-4">Speakers</a>
-                <a href="{{ route('home') }}#schedule" class="mob-link text-2xl font-black text-charcoal border-b border-gray-100 pb-4">Schedule</a>
-                <a href="{{ route('home') }}#registration" class="mob-link w-full py-5 bg-accent text-white text-center rounded-2xl text-xl font-bold shadow-xl shadow-accent/40">Register Now</a>
             </nav>
         </div>
     </header>
@@ -104,38 +86,30 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 1. HAMBURGER MENU LOGIC
-            const toggleBtn = document.getElementById('nav-toggle-btn');
-            const menuBox = document.getElementById('nav-menu-container');
-            const openIcon = document.getElementById('svg-open');
-            const closeIcon = document.getElementById('svg-close');
-            const navLinks = document.querySelectorAll('.mob-link');
-
-            if (toggleBtn && menuBox) {
-                toggleBtn.addEventListener('click', function() {
-                    if (menuBox.style.display === 'none' || menuBox.style.display === '') {
-                        menuBox.style.display = 'block';
-                        openIcon.classList.add('hidden');
-                        closeIcon.classList.remove('hidden');
-                        document.body.classList.add('lock-scroll');
-                    } else {
-                        menuBox.style.display = 'none';
-                        openIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        document.body.classList.remove('lock-scroll');
+            // 1. MOBILE DOCK SMOOTH SCROLL LOGIC
+            const dockLinks = document.querySelectorAll('.dock-link');
+            dockLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Only smooth scroll if we are on the home page (where targets exist).
+                    if(window.location.pathname === '/' || window.location.pathname === '') {
+                        const targetId = this.getAttribute('href').split('#')[1];
+                        if (targetId) {
+                            const targetElement = document.getElementById(targetId);
+                            if (targetElement) {
+                                e.preventDefault();
+                                const headerOffset = 70;
+                                const elementPosition = targetElement.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                                
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }
                     }
                 });
-
-                // Close menu when a link is clicked
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        menuBox.style.display = 'none';
-                        openIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        document.body.classList.remove('lock-scroll');
-                    });
-                });
-            }
+            });
 
             // 2. SPEAKER POPUP GLOBAL LISTENER
             window.addEventListener('open-speaker-modal', function(e) {
@@ -179,6 +153,41 @@
             }
         });
     </script>
+
+    <!-- Mobile Bottom Navigation Dock -->
+    <nav id="mobile-bottom-dock" class="md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-t border-gray-200">
+        <ul class="flex items-center justify-around px-2 py-3">
+            <li>
+                <a href="{{ route('home') }}#about" class="dock-link flex flex-col items-center gap-1 text-charcoal hover:text-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">About</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('home') }}#speakers" class="dock-link flex flex-col items-center gap-1 text-charcoal hover:text-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Speakers</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('home') }}#schedule" class="dock-link flex flex-col items-center gap-1 text-charcoal hover:text-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Schedule</span>
+                </a>
+            </li>
+            <li class="pl-2 border-l border-gray-200">
+                <a href="{{ route('home') }}#registration" class="dock-link flex flex-col items-center justify-center rounded-xl bg-charcoal px-4 py-2 text-white shadow-sm hover:bg-gray-800 transition-colors">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-accent">Register</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
     
     <!-- Go To Top Button -->
     <button id="go-to-top" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-accent text-white shadow-xl shadow-accent/40 opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-accent" aria-label="Go to top">
