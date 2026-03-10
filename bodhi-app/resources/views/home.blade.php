@@ -81,21 +81,35 @@
                 </a>
             </div>
 
-            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
-                @foreach($speakers as $speaker)
-                <div class="snap-start shrink-0 w-[280px] sm:w-[320px]">
-                    <article data-speaker-id="{{ $speaker->id }}" role="button" tabindex="0" class="speaker-card h-full group rounded-3xl bg-bg border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent">
-                        <div class="h-56 overflow-hidden">
-                            <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ $speaker->image_url }}" alt="{{ $speaker->name }}" />
-                        </div>
-                        <div class="p-6 md:p-8">
-                            <p class="text-xs font-bold uppercase tracking-wider text-accent">{{ $speaker->role }}</p>
-                            <h3 class="mt-3 text-lg font-bold text-charcoal">{{ $speaker->name }}</h3>
-                            <p class="mt-2 text-sm text-gray-600 font-medium leading-relaxed">{{ $speaker->organization }}</p>
-                        </div>
-                    </article>
+            <div class="relative group/carousel">
+                <!-- Navigation Arrows -->
+                <button id="speaker-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 p-3 rounded-full bg-white shadow-xl text-charcoal opacity-0 group-hover/carousel:opacity-100 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Previous speaker">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="speaker-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 p-3 rounded-full bg-white shadow-xl text-charcoal opacity-0 group-hover/carousel:opacity-100 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Next speaker">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <div id="speaker-carousel-container" class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 scroll-smooth">
+                    @foreach($speakers as $speaker)
+                    <div class="snap-start shrink-0 w-[280px] sm:w-[320px]">
+                        <article data-speaker-id="{{ $speaker->id }}" role="button" tabindex="0" class="speaker-card h-full group rounded-3xl bg-bg border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent">
+                            <div class="h-56 overflow-hidden">
+                                <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ $speaker->image_url }}" alt="{{ $speaker->name }}" />
+                            </div>
+                            <div class="p-6 md:p-8">
+                                <p class="text-xs font-bold uppercase tracking-wider text-accent">{{ $speaker->role }}</p>
+                                <h3 class="mt-3 text-lg font-bold text-charcoal">{{ $speaker->name }}</h3>
+                                <p class="mt-2 text-sm text-gray-600 font-medium leading-relaxed">{{ $speaker->organization }}</p>
+                            </div>
+                        </article>
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
     </section>
@@ -207,6 +221,7 @@
         })->toArray()); ?>;
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Speaker Card Click Listeners
             document.querySelectorAll('.speaker-card').forEach(card => {
                 card.addEventListener('click', () => {
                     const id = card.getAttribute('data-speaker-id');
@@ -215,6 +230,50 @@
                     }));
                 });
             });
+
+            // Speaker Carousel Logic
+            const carousel = document.getElementById('speaker-carousel-container');
+            const btnPrev = document.getElementById('speaker-prev');
+            const btnNext = document.getElementById('speaker-next');
+            
+            if (carousel) {
+                let autoScrollInterval;
+                const scrollAmount = 300; // Approximate width of a card + gap
+                const autoScrollSpeed = 3000; // ms
+
+                const scrollNext = () => {
+                    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+                        carousel.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back
+                    } else {
+                        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    }
+                };
+
+                const scrollPrev = () => {
+                    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                };
+
+                const startAutoScroll = () => {
+                    autoScrollInterval = setInterval(scrollNext, autoScrollSpeed);
+                };
+
+                const stopAutoScroll = () => {
+                    clearInterval(autoScrollInterval);
+                };
+
+                // Manual Navigation
+                if (btnNext) btnNext.addEventListener('click', () => { stopAutoScroll(); scrollNext(); startAutoScroll(); });
+                if (btnPrev) btnPrev.addEventListener('click', () => { stopAutoScroll(); scrollPrev(); startAutoScroll(); });
+
+                // Hover/Touch to pause
+                carousel.addEventListener('mouseenter', stopAutoScroll);
+                carousel.addEventListener('mouseleave', startAutoScroll);
+                carousel.addEventListener('touchstart', stopAutoScroll, { passive: true });
+                carousel.addEventListener('touchend', startAutoScroll, { passive: true });
+
+                // Start auto loop initially
+                startAutoScroll();
+            }
         });
     </script>
 @endsection
