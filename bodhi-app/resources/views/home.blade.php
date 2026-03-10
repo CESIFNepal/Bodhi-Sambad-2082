@@ -25,7 +25,7 @@
                     <div class="inline-flex items-center gap-4 text-sm font-semibold text-gray-800 bg-white/60 backdrop-blur-md px-6 py-3 rounded-full shadow-sm">
                         <span class="flex items-center gap-2">
                             <span class="inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
-                            May 21–23, 2026
+                            Jun 18–22, 2026
                         </span>
                         <span class="flex items-center gap-2 border-l border-gray-300 pl-4">
                             <span class="inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
