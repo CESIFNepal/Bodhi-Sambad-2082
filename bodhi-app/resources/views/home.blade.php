@@ -81,15 +81,15 @@
                 </a>
             </div>
 
-            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 @foreach($speakers as $speaker)
                 <article data-speaker-id="{{ $speaker->id }}" role="button" tabindex="0" class="speaker-card group rounded-3xl bg-bg border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent">
-                    <div class="h-72 sm:h-64 overflow-hidden">
+                    <div class="h-56 overflow-hidden">
                         <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ $speaker->image_url }}" alt="{{ $speaker->name }}" />
                     </div>
                     <div class="p-6 md:p-8">
                         <p class="text-xs font-bold uppercase tracking-wider text-accent">{{ $speaker->role }}</p>
-                        <h3 class="mt-3 text-xl font-bold text-charcoal">{{ $speaker->name }}</h3>
+                        <h3 class="mt-3 text-lg font-bold text-charcoal">{{ $speaker->name }}</h3>
                         <p class="mt-2 text-sm text-gray-600 font-medium leading-relaxed">{{ $speaker->organization }}</p>
                     </div>
                 </article>

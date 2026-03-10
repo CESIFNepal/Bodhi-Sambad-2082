@@ -193,6 +193,12 @@ function init() {
     scrollToHashOnLoad();
     setupSpeakerModalInteractions();
     setupMobileMenu();
+
+    // Allow programmatic opening (used on pages that dispatch an event instead of relying purely on click handlers)
+    window.addEventListener('open-speaker-modal', (event) => {
+        const id = event?.detail?.id;
+        if (id) openSpeakerModal(id);
+    });
 }
 
 if (document.readyState === 'loading') {
