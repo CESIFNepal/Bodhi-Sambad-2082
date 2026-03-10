@@ -42,45 +42,8 @@
       <p class="mt-4 text-base text-gray-700">This gallery highlights the experts driving the conversations at BODHI SAMBAD 2026.</p>
     </header>
 
-    <section class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Speaker Item (copy/paste to add more) -->
-      <article class="rounded-3xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-        <div class="relative overflow-hidden rounded-2xl">
-          <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=900&q=80" alt="Speaker Image" />
-        </div>
-        <h2 class="mt-6 text-xl font-semibold text-charcoal">Dr. Maya Shrestha</h2>
-        <p class="mt-2 text-sm font-semibold text-accent">Professor, International Relations</p>
-        <p class="mt-3 text-sm text-gray-700">Dr. Shrestha’s work focuses on regional diplomacy and the economic impact of infrastructure projects across South Asia.</p>
-      </article>
-
-      <article class="rounded-3xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-        <div class="relative overflow-hidden rounded-2xl">
-          <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Speaker Image" />
-        </div>
-        <h2 class="mt-6 text-xl font-semibold text-charcoal">Mr. Li Wei</h2>
-        <p class="mt-2 text-sm font-semibold text-accent">Senior Research Fellow</p>
-        <p class="mt-3 text-sm text-gray-700">Mr. Li brings deep insight into policy trends and strategic frameworks shaping China’s engagement in the region.</p>
-      </article>
-
-      <article class="rounded-3xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-        <div class="relative overflow-hidden rounded-2xl">
-          <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=900&q=80" alt="Speaker Image" />
-        </div>
-        <h2 class="mt-6 text-xl font-semibold text-charcoal">Dr. Ayesha Patel</h2>
-        <p class="mt-2 text-sm font-semibold text-accent">Economist</p>
-        <p class="mt-3 text-sm text-gray-700">Ayesha explores regional economic integration strategies and trade diplomacy challenges.</p>
-      </article>
-
-      <article class="rounded-3xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-        <div class="relative overflow-hidden rounded-2xl">
-          <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=900&q=80" alt="Speaker Image" />
-        </div>
-        <h2 class="mt-6 text-xl font-semibold text-charcoal">Mr. Rajiv Thapa</h2>
-        <p class="mt-2 text-sm font-semibold text-accent">Senior Analyst</p>
-        <p class="mt-3 text-sm text-gray-700">Rajiv’s analysis focuses on strategic alliances, risk assessment, and policy coherence across South Asia.</p>
-      </article>
-
-      <!-- Add more speaker cards below as needed -->
+    <section class="mt-14">
+      <div id="speakersGrid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
     </section>
   </main>
 
@@ -96,6 +59,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- Speaker detail modal -->
+  <div id="speaker-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+    <div class="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-xl">
+      <button id="speaker-modal-close" class="absolute right-4 top-4 rounded-full bg-white/80 p-2 text-gray-700 transition hover:bg-white">
+        <span class="sr-only">Close</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10 8.586l4.95-4.95a1 1 0 111.414 1.414L11.414 10l4.95 4.95a1 1 0 11-1.414 1.414L10 11.414l-4.95 4.95a1 1 0 01-1.414-1.414L8.586 10 3.636 5.05a1 1 0 011.414-1.414L10 8.586z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div class="grid gap-6 p-8 md:grid-cols-3">
+        <div class="md:col-span-1">
+          <img id="speaker-modal-image" class="h-48 w-full rounded-2xl object-cover" src="" alt="" />
+        </div>
+        <div class="md:col-span-2">
+          <p id="speaker-modal-role" class="text-sm font-semibold text-accent"></p>
+          <h2 id="speaker-modal-name" class="mt-2 text-2xl font-semibold text-charcoal"></h2>
+          <p id="speaker-modal-title" class="mt-2 text-sm text-gray-700"></p>
+          <hr class="my-4 border-gray-200" />
+          <p id="speaker-modal-bio" class="text-sm text-gray-700"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
