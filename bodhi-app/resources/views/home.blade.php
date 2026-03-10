@@ -77,7 +77,7 @@
                     <p class="mt-6 max-w-2xl text-lg text-gray-700 leading-relaxed">Meet the thought leaders who will be guiding the conversations on geopolitics and diplomacy.</p>
                 </div>
                 <a href="{{ route('speakers') }}" target="_blank" rel="noopener" class="w-full md:w-auto justify-center inline-flex items-center gap-2 rounded-full border-2 border-gray-200 bg-white px-8 py-3 text-sm font-bold text-charcoal shadow-sm transition hover:border-accent hover:text-accent group">
-                    View Complete Directory
+                    View All Speakers
                 </a>
             </div>
 
