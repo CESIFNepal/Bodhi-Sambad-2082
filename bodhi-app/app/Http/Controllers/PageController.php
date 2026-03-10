@@ -8,6 +8,8 @@ class PageController extends Controller
 {
     public function home()
     {
+        // Keep the home page lightweight with only a few featured speakers.
+        // The "Complete Directory" link leads to the full speaker list.
         $speakers = \App\Models\Speaker::take(4)->get();
         $schedules = \App\Models\Schedule::take(3)->get();
         $sponsors = \App\Models\Sponsor::all();
