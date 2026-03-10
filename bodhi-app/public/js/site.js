@@ -121,7 +121,23 @@ function getSpeakerMap() {
 
 function openSpeakerModal(speakerId) {
     const speakerMap = getSpeakerMap();
-    const speaker = speakerMap[speakerId];
+    let speaker = speakerMap[speakerId];
+
+    // Fallback: if we don't have structured data, try to read it from the card's data-* attributes.
+    if (!speaker) {
+        const card = safeQuerySelector(`[data-speaker-id="${speakerId}"]`);
+        if (card) {
+            speaker = {
+                id: speakerId,
+                name: card.dataset.speakerName || '',
+                role: card.dataset.speakerRole || '',
+                organization: card.dataset.speakerOrganization || '',
+                bio: card.dataset.speakerBio || '',
+                image_url: card.dataset.speakerImage || ''
+            };
+        }
+    }
+
     if (!speaker) return;
 
     const modal = safeQuerySelector('#speaker-modal');

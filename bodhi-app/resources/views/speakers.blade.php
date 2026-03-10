@@ -69,7 +69,7 @@
                         {{ $speaker->role }}
                     </div>
                 </div>
-                <div class="p-6 flex-grow flex flex-col justify-center text-center">
+                <div class="p-6 flex-grow flex flex-col justify-center text-center" data-speaker-name="{{ $speaker->name }}" data-speaker-role="{{ $speaker->role }}" data-speaker-organization="{{ $speaker->organization }}" data-speaker-bio="{{ $speaker->bio ?? '' }}" data-speaker-image="{{ $speaker->image_url }}">
                     <h3 class="text-xl font-bold text-charcoal">{{ $speaker->name }}</h3>
                     <div class="h-1 w-10 bg-accent rounded-full mx-auto my-3"></div>
                     <p class="text-sm text-gray-600 font-medium leading-relaxed">{{ $speaker->organization }}</p>
@@ -99,16 +99,18 @@
     })->toArray()); ?>;
 
     // Listener to open the modal when a speaker card is clicked
-    document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.speaker-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const id = card.getAttribute('data-speaker-id');
-                window.dispatchEvent(new CustomEvent('open-speaker-modal', { 
-                    detail: { id: id } 
-                }));
-            });
-        });
+   document.addEventListener('DOMContentLoaded', () => {
+    // We use event delegation to be safe
+    document.body.addEventListener('click', (e) => {
+        const card = e.target.closest('.speaker-card');
+        if (card) {
+            const id = card.getAttribute('data-speaker-id');
+            window.dispatchEvent(new CustomEvent('open-speaker-modal', { 
+                detail: { id: id } 
+            }));
+        }
     });
+});
 </script>
 
 @endsection
