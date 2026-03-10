@@ -15,7 +15,7 @@
         @php
             if ($speakers->isEmpty()) {
                 $speakers = collect([
-                    (object) ['id' => 'maya-shrestha', 'name' => 'Dr. Maya Shrestha', 'role' => 'Panel Chair', 'organization' => 'Professor of International Relations, Tribhuvan University', 'image_url' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80', 'bio' => 'Dr. Shrestha’s research focuses on regional diplomacy, governance reform, and the economic impact of infrastructure initiatives across South Asia.'],
+                    (object) ['id' => 'maya-shrestha', 'name' => 'Sujan Aryal', 'role' => 'Digital Marketing & Communication officer', 'organization' => '', 'image_url' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80', 'bio' => 'Dr. Shrestha’s research focuses on regional diplomacy, governance reform, and the economic impact of infrastructure initiatives across South Asia.'],
                     (object) ['id' => 'li-wei', 'name' => 'Mr. Li Wei', 'role' => 'Keynote Speaker', 'organization' => 'Senior Research Fellow, Asia Policy Institute', 'image_url' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80', 'bio' => 'Mr. Li brings deep insight into policy trends, strategic frameworks, and multilateral diplomacy shaping China’s engagement in the region.'],
                     (object) ['id' => 'ayesha-patel', 'name' => 'Dr. Ayesha Patel', 'role' => 'Panelist', 'organization' => 'Economist, Regional Development Council', 'image_url' => 'https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=900&q=80', 'bio' => 'Ayesha explores regional economic integration strategies, trade diplomacy challenges, and the future of cross-border infrastructure finance.'],
                     (object) ['id' => 'rajiv-thapa', 'name' => 'Mr. Rajiv Thapa', 'role' => 'Panelist', 'organization' => 'Senior Analyst, Global Affairs Forum', 'image_url' => 'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=900&q=80', 'bio' => 'Rajiv’s analysis focuses on strategic alliances, risk assessment, and policy coherence across South Asia in light of global power shifts.'],
@@ -82,3 +82,16 @@
 
 {{-- Include the modal component --}}
 @include('components.speaker-modal')
+
+<script>
+    window.SPEAKERS = @json($speakers->map(function($s) {
+        return [
+            'id' => $s->id,
+            'name' => $s->name,
+            'role' => $s->role,
+            'organization' => $s->organization,
+            'bio' => property_exists($s, 'bio') ? $s->bio : null,
+            'image_url' => $s->image_url,
+        ];
+    }));
+</script>
