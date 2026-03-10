@@ -34,6 +34,10 @@
         }
     </script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -55,7 +59,6 @@
                 <a href="{{ route('home') }}#about" class="text-charcoal hover:text-accent transition">About</a>
                 <a href="{{ route('home') }}#speakers" class="text-charcoal hover:text-accent transition">Speakers</a>
                 <a href="{{ route('home') }}#schedule" class="text-charcoal hover:text-accent transition">Schedule</a>
-                <a href="{{ route('home') }}#sponsors" class="text-charcoal hover:text-accent transition">Sponsors</a>
                 <a href="{{ route('home') }}#registration" class="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-accent/30 transition hover:bg-accent/90">Register</a>
             </nav>
         </div>
@@ -78,5 +81,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="{{ asset('js/site.js') }}"></script>
 </body>
 </html>

@@ -88,7 +88,7 @@
 
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach($speakers as $speaker)
-                <article class="group rounded-3xl bg-bg border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden">
+                <article data-speaker-id="{{ $speaker->id }}" role="button" tabindex="0" class="speaker-card group rounded-3xl bg-bg border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-white">
                     <div class="h-64 overflow-hidden">
                         <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ $speaker->image_url }}" alt="{{ $speaker->name }}" />
                     </div>
@@ -235,4 +235,17 @@
             </div>
         </div>
     </section>
+
+    @include('components.speaker-modal')
+
+    <script>
+        window.SPEAKERS = @json($speakers->map(fn($s) => [
+            'id' => $s->id,
+            'name' => $s->name,
+            'role' => $s->role,
+            'organization' => $s->organization,
+            'bio' => $s->bio,
+            'image_url' => $s->image_url,
+        ]));
+    </script>
 @endsection

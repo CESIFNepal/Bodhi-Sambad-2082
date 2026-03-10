@@ -14,7 +14,7 @@
 
         <div class="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             @foreach($speakers as $speaker)
-            <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-500 border border-gray-100 flex flex-col">
+            <div data-speaker-id="{{ $speaker->id }}" role="button" tabindex="0" class="speaker-card bg-white rounded-3xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-500 border border-gray-100 flex flex-col cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-white">
                 <div class="h-80 overflow-hidden relative group border-b-4 border-accent">
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ $speaker->image_url }}" alt="{{ $speaker->name }}" />
                     <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-xs font-bold text-charcoal shadow-sm uppercase tracking-wider">
@@ -31,4 +31,17 @@
         </div>
     </div>
 </div>
+
+@include('components.speaker-modal')
+
+<script>
+    window.SPEAKERS = @json($speakers->map(fn($s) => [
+        'id' => $s->id,
+        'name' => $s->name,
+        'role' => $s->role,
+        'organization' => $s->organization,
+        'bio' => $s->bio,
+        'image_url' => $s->image_url,
+    ]));
+</script>
 @endsection
