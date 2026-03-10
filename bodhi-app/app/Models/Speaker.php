@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Speaker extends Model
 {
-    protected $fillable = ['name', 'role', 'organization', 'image_url'];
+    protected $fillable = ['name', 'role', 'organization', 'image_url', 'bio'];
 }

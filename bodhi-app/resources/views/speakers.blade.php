@@ -35,13 +35,15 @@
 @include('components.speaker-modal')
 
 <script>
-    window.SPEAKERS = @json($speakers->map(fn($s) => [
-        'id' => $s->id,
-        'name' => $s->name,
-        'role' => $s->role,
-        'organization' => $s->organization,
-        'bio' => $s->bio,
-        'image_url' => $s->image_url,
-    ]));
+    window.SPEAKERS = @json($speakers->map(function($s) {
+        return [
+            'id' => $s->id,
+            'name' => $s->name,
+            'role' => $s->role,
+            'organization' => $s->organization,
+            'bio' => $s->bio,
+            'image_url' => $s->image_url,
+        ];
+    }));
 </script>
 @endsection
