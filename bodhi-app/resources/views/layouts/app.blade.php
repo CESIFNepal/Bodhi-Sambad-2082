@@ -69,7 +69,7 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden border-t border-gray-200 bg-white/95 px-4 pb-4">
+        <div id="mobile-menu" class="hidden border-t border-gray-200 bg-white/95 px-4 pb-4 max-h-0 overflow-hidden transition-[max-height] duration-300 ease-out">
             <nav class="flex flex-col gap-3 pt-4">
                 <a href="{{ route('home') }}#about" class="text-base font-medium text-charcoal hover:text-accent">About</a>
                 <a href="{{ route('home') }}#speakers" class="text-base font-medium text-charcoal hover:text-accent">Speakers</a>

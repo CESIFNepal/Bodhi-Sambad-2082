@@ -64,8 +64,21 @@ function setupMobileMenu() {
 
     toggle.addEventListener('click', () => {
         const isOpen = !menu.classList.contains('hidden');
-        menu.classList.toggle('hidden');
+        if (isOpen) {
+            menu.style.maxHeight = '0';
+            setTimeout(() => menu.classList.add('hidden'), 300);
+        } else {
+            menu.classList.remove('hidden');
+            menu.style.maxHeight = `${menu.scrollHeight}px`;
+        }
         setExpanded(!isOpen);
+    });
+
+    // Keep max-height in sync after resizing (useful for orientation changes)
+    window.addEventListener('resize', () => {
+        if (!menu.classList.contains('hidden')) {
+            menu.style.maxHeight = `${menu.scrollHeight}px`;
+        }
     });
 
     // Close menu on navigation link click
