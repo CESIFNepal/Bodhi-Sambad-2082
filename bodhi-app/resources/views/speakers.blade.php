@@ -11,7 +11,7 @@
     $speakers = collect([
         (object) [
             'id' => 'sujan-aryal', 
-            'name' => 'Sujan Aryal', 
+            'name' => 'Dr. Sujan Aryal', 
             'role' => 'Speaker', 
             'organization' => 'CESIF', 
             'image_url' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80', 
@@ -42,6 +42,23 @@
             'bio' => 'Rajiv’s analysis focuses on strategic alliances, risk assessment, and policy coherence across South Asia in light of global power shifts.'
         ],
         // ADD OR EDIT MORE SPEAKERS HERE...
+        (object) [
+            'id' => 'rajiv-thapa', 
+            'name' => 'Mr. Rajiv Thapa', 
+            'role' => 'Panelist', 
+            'organization' => 'Senior Analyst, Global Affairs Forum', 
+            'image_url' => 'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=900&q=80', 
+            'bio' => 'Rajiv’s analysis focuses on strategic alliances, risk assessment, and policy coherence across South Asia in light of global power shifts.'
+        ],
+        (object) [
+            'id' => 'rajiv-thapa', 
+            'name' => 'Mr. Rajiv Thapa', 
+            'role' => 'Panelist', 
+            'organization' => 'Senior Analyst, Global Affairs Forum', 
+            'image_url' => 'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=900&q=80', 
+            'bio' => 'Rajiv’s analysis focuses on strategic alliances, risk assessment, and policy coherence across South Asia in light of global power shifts.'
+        ],
+
         (object) [
             'id' => 'nisha-gupta', 
             'name' => 'Dr. Nisha Gupta', 
