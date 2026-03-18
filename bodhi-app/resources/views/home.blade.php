@@ -18,28 +18,28 @@
             'bio' => 'Dr. Sujan’s research focuses on regional diplomacy, governance reform, and the economic impact of infrastructure initiatives across South Asia.'
         ],
         (object) [
-            'id' => 'li-wei', 
-            'name' => 'Mr. Li Wei', 
+            'id' => 'Pawan-Adhikari', 
+            'name' => 'Mr. Pawan Adhikari', 
             'role' => 'Keynote Speaker', 
             'organization' => 'Senior Research Fellow, Asia Policy Institute', 
             'image_url' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80', 
-            'bio' => 'Mr. Li brings deep insight into policy trends, strategic frameworks, and multilateral diplomacy shaping China’s engagement in the region.'
+            'bio' => 'Mr. Pawan brings deep insight into policy trends, strategic frameworks, and multilateral diplomacy shaping China’s engagement in the region.'
         ],
         (object) [
-            'id' => 'ayesha-patel', 
-            'name' => 'Dr. Ayesha Patel', 
+            'id' => 'Nimesh-Risal', 
+            'name' => 'Dr. Nimesh Risal', 
             'role' => 'Panelist', 
             'organization' => 'Economist, Regional Development Council', 
             'image_url' => 'https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=900&q=80', 
-            'bio' => 'Ayesha explores regional economic integration strategies, trade diplomacy challenges, and the future of cross-border infrastructure finance.'
+            'bio' => 'Nimesh explores regional economic integration strategies, trade diplomacy challenges, and the future of cross-border infrastructure finance.'
         ],
         (object) [
-            'id' => 'rajiv-thapa', 
-            'name' => 'Mr. Rajiv Thapa', 
+            'id' => 'Abhsihek-Dhungel', 
+            'name' => 'Mr. Abhishek Dhungel', 
             'role' => 'Panelist', 
             'organization' => 'Senior Analyst, Global Affairs Forum', 
             'image_url' => 'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=900&q=80', 
-            'bio' => 'Rajiv’s analysis focuses on strategic alliances, risk assessment, and policy coherence across South Asia in light of global power shifts.'
+            'bio' => 'Abhishek’s analysis focuses on strategic alliances, risk assessment, and policy coherence across South Asia in light of global power shifts.'
         ],
         (object) [
             'id' => 'nisha-gupta', 
